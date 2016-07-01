@@ -99,7 +99,7 @@ var hanLec = {
     var author = $('input[name="author"]').val();
     var text = $('input[name="comment"]').val();
     var isGood = document.getElementById('isGood').checked;
-    var lecturerId = $('.create-rating').find('span.hidden').text();
+    var lecturerId = $('.create-rating').find('span.hidden').last().text();//fix the id assigning issue - thanks Ben!
     return {
       lecturerId: lecturerId,
       author: author,
