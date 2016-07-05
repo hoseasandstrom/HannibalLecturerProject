@@ -37,7 +37,7 @@ public class LecturerRestController {
     }
 
     @RequestMapping(path = "/reviews", method = RequestMethod.POST) //createReview: '/reviews'
-    public String postreviews(String author, String comment, int lecturerId, boolean isGood) {
+    public String postReviews(String author, String comment, int lecturerId, boolean isGood) {
         Lecturer lecturer = lecturers.findOne(lecturerId);
         Review review = new Review(author, comment, isGood, lecturer);
         reviews.save(review);
@@ -51,7 +51,7 @@ public class LecturerRestController {
     }
 
     @RequestMapping(path = "/lecturers", method = RequestMethod.POST) //getLecturer: "/lecturers"
-    public String postlecturers(String name, String topic, String image) {
+    public String postLecturers(String name, String topic, String image) {
         Lecturer lecturer = new Lecturer(name, topic, image);
         lecturers.save(lecturer);
         return "redirect:/";
