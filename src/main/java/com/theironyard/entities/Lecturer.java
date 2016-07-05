@@ -21,6 +21,9 @@ public class Lecturer {
     @Column(nullable = false)
     String image;
 
+    //@Transient
+    //int lecturerId - could have done it this way as well
+
     public Lecturer() {
     }
 
