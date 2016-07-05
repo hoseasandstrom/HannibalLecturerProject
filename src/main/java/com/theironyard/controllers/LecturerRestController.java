@@ -43,18 +43,18 @@ public class LecturerRestController {
         return "redirect:/";
     }
 
+    @RequestMapping(path = "/reviews", method = RequestMethod.GET)//createReview: '/reviews'
+    public Iterable<Review> getReviews(Integer lecturerId) {
+        Iterable<Review> reviewList = reviews.findByLecturerId(lecturerId);
+        return reviewList;
+    }
+
     @RequestMapping(path = "/reviews", method = RequestMethod.POST) //createReview: '/reviews'
-    public String postReviews(String author, String comment, int lecturerId, boolean isGood) {
+    public String postReviews(String author, String comment, Integer lecturerId, boolean isGood) {
         Lecturer lecturer = lecturers.findOne(lecturerId);
         Review review = new Review(author, comment, isGood, lecturer);
         reviews.save(review);
         return "redirect:/";
-    }
-
-    @RequestMapping(path = "/reviews", method = RequestMethod.GET)//createReview: '/reviews'
-    public Iterable<Review> getReviews(int lecturerId) {
-        Iterable<Review> reviewList = reviews.findByLecturerIdOrderByAuthorAsc(lecturerId);
-        return reviewList;
     }
 
 }

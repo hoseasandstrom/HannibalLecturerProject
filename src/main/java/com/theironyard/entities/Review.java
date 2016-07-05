@@ -27,11 +27,12 @@ public class Review {
     public Review() {
     }
 
-    public Review(String author, String comment, Lecturer lecturer, boolean isGood) {
+    public Review(int id, String author, String comment, boolean isGood, Lecturer lecturer) {
+        this.id = id;
         this.author = author;
         this.comment = comment;
-        this.lecturer = lecturer;
         this.isGood = isGood;
+        this.lecturer = lecturer;
     }
 
     public Review(String author, String comment, boolean isGood, Lecturer lecturer) {
@@ -73,11 +74,11 @@ public class Review {
         this.lecturer = lecturer;
     }
 
-    public boolean isGood() {
+    public boolean getIsGood() {
         return isGood;
     }
 
-    public void setGood(boolean good) {
+    public void setIsGood(boolean good) {
         isGood = good;
     }
 }
